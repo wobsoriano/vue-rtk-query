@@ -2,6 +2,8 @@
 
 Using RTK Query for data fetching and caching in Vue 3.
 
+Demo: https://codesandbox.io/s/vue-rtk-query-n4dh5
+
 ## Installing
 
 1. Install dependencies
