@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <input type="text" v-model="name" />
+    <input type="text" v-model="name" placeholder="Enter pokemon name" />
     <p v-if="isLoading">Fetching...</p>
     <div v-else>
       <p v-if="error" class="error">Error fetching pokemon</p>
