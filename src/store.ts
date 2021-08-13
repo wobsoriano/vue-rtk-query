@@ -12,8 +12,8 @@ const reduxStore = configureStore({
 
 export function useGetPokemonByNameQuery(name: Ref<string>) {
     const store = ref(reduxStore.getState());
-    const refetch = ref(() => {});
-    const unsubscribe = ref(() => {});
+    let refetch = () => {};
+    let unsubscribe = () => {};
 
     const unsubscribeStore = reduxStore.subscribe(() => {
         store.value = reduxStore.getState();
@@ -21,8 +21,8 @@ export function useGetPokemonByNameQuery(name: Ref<string>) {
 
     const getPokemonByName = () => {
         const result = reduxStore.dispatch(pokemonApi.endpoints.getPokemonByName.initiate(name.value.toLowerCase()));
-        refetch.value = result.refetch;
-        unsubscribe.value  = result.unsubscribe;
+        refetch = result.refetch;
+        unsubscribe = result.unsubscribe;
     }
 
     const result = computed(() => pokemonApi.endpoints.getPokemonByName.select(name.value.toLowerCase())(store.value));
