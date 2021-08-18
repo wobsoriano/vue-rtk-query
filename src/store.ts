@@ -36,7 +36,7 @@ export function useGetPokemonByNameQuery(name: Ref<string>) {
 
     onUnmounted(() => {
         unsubscribeStore();
-        unsubscribe.value();
+        unsubscribe();
     });
 
     return {
